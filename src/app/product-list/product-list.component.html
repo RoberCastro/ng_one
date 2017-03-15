@@ -1,0 +1,29 @@
+<p>
+  {{pageTitle}}
+
+</p>
+<table class="table table-responsive" *ngIf="products?.length">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Image</th>
+      <th>Nom</th>
+      <th>Note</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td><img [src]="product.image" width="50px"/></td>
+      <td>{{product.name}}</td>
+      <td>{{product.note}}</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+<pre>
+   {{products|json}}
+</pre>

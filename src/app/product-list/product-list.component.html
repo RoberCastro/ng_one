@@ -7,6 +7,7 @@
     <tr>
       <th>Id</th>
       <th>Image</th>
+      <th>Montrer/Cacher</th>
       <th>Nom</th>
       <th>Note</th>
     </tr>
@@ -15,7 +16,21 @@
   <tbody>
     <tr *ngFor="let product of products">
       <td>{{product.id}}</td>
-      <td><img [src]="product.image" width="50px"/></td>
+      <td *ngIf="product.images.length">
+        <img
+        [src]="product.images[product.index]"
+        *ngIf="product.esVisible"/>
+        <button (click)='changerPhoto(product)'>Autre</button>
+      </td>
+      <td *ngIf="!product.images.length">
+        <p>
+          'Pas d'images. Pas content.'
+        </p>
+      </td>
+      <td>
+        <button *ngIf="product.images.length" (click)='showHide(product)'>{{ product.esVisible ? 'Cacher' : 'Montrer'}}</button>
+      </td>
+
       <td>{{product.name}}</td>
       <td>{{product.note}}</td>
     </tr>
@@ -25,5 +40,5 @@
 </table>
 
 <pre>
-   {{products|json}}
+  {{products|json}}
 </pre>

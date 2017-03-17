@@ -32,7 +32,12 @@
       </td>
 
       <td>{{product.name}}</td>
-      <td>{{product.note}}</td>
+      <td>
+          <app-star
+                    [rating]="product.note"
+                    (notify)="onNotify($event)">
+          </app-star>
+      </td>
     </tr>
 
   </tbody>

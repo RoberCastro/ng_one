@@ -3,9 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { StarComponent } from './shared/ui/star/star.component';
+import { ProductService } from './shared/providers/product.service';
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -16,9 +19,13 @@ import { StarComponent } from './shared/ui/star/star.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+
+      { path: 'products', component:ProductListComponent }
+    ])
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

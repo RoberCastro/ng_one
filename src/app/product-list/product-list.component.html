@@ -2,8 +2,24 @@
   {{pageTitle}}
 
 </p>
-<table class="table table-responsive" *ngIf="products?.length">
-  <thead>
+
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-2">Filter by:</div>
+    <div class="col-md-4">
+      <input type="text" [(ngModel)]="listFilter"/>
+    </div>
+  </div>
+  <div class="row" *ngIf="listFilter">
+    <div class="col-md-6">
+      <h3>Filtered by: {{ listFilter }} </h3>
+    </div>
+  </div>
+
+  <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <table class="table table-responsive" *ngIf="products?.length">
+    <thead>
     <tr>
       <th>Ids</th>
       <th>Image</th>
@@ -12,14 +28,15 @@
       <th>Note</th>
     </tr>
 
-  </thead>
-  <tbody>
+
+    </thead>
+    <tbody>
     <tr *ngFor="let product of products">
       <td>{{product.id}}</td>
       <td *ngIf="product.images.length">
         <img
-        [src]="product.images[product.index]"
-        *ngIf="product.esVisible"/>
+          [src]="product.images[product.index]"
+          *ngIf="product.esVisible"/>
         <button (click)='changerPhoto(product)'>Autre</button>
       </td>
       <td *ngIf="!product.images.length">
@@ -28,21 +45,25 @@
         </p>
       </td>
       <td>
-        <button *ngIf="product.images.length" (click)='showHide(product)'>{{ product.esVisible ? 'Cacher' : 'Montrer'}}</button>
+        <button *ngIf="product.images.length" (click)='showHide(product)'>{{ product.esVisible ? 'Cacher' :
+          'Montrer'}}
+        </button>
       </td>
 
       <td>{{product.name}}</td>
       <td>
-          <app-star
-                    [rating]="product.note"
-                    (notify)="onNotify($event)">
-          </app-star>
+        <app-star
+          [rating]="product.note"
+          (notify)="onNotify($event)">
+        </app-star>
       </td>
     </tr>
 
-  </tbody>
+    </tbody>
 
-</table>
+  </table>
+</div>
+
 
 <pre>
   {{products|json}}

@@ -10,7 +10,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "api": "json-server --watch ./api/db.json"
-
   },
   "private": true,
   "dependencies": {

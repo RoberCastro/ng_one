@@ -14,6 +14,8 @@ export class ProductListComponent implements OnInit {
   pageTitle: String = 'Mes produits son contents';
   products: IProduct [] = [];
   private errorMessage;
+  listFilter: string;
+
 
 
 

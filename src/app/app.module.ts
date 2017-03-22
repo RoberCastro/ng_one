@@ -14,6 +14,7 @@ import { RouterModule } from "@angular/router";
 import { ArrayFilterPipe } from './shared/pipes/array-filter.pipe';
 import { ProductDetailComponent } from './product-list/product-detail.component';
 import {ROUTES} from "./app.route";
+import { ProductNewComponent } from './product-list/product-new/product-new.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {ROUTES} from "./app.route";
     ProductListComponent,
     StarComponent,
     ArrayFilterPipe,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductNewComponent
   ],
   imports: [
     BrowserModule,

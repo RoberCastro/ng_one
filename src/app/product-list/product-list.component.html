@@ -2,15 +2,19 @@
   {{pageTitle}}
 
 </p>
+<router-outlet></router-outlet>
 
 <div class="panel panel-primary">
 
+  <div class="panel-heading">Liste des produits</div>
 
   <div class="panel-body">
     <div class="row">
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
         <input type="text" [(ngModel)]='listFilter'/>
+        <button [routerLink]="['/product/new']">Nouveau</button>
+
       </div>
     </div>
 
@@ -26,8 +30,6 @@
         <th>Nom</th>
         <th>Note</th>
       </tr>
-
-      <router-outlet></router-outlet>
 
       </thead>
       <tbody>
@@ -57,6 +59,7 @@
           </app-star>
         </td>
       </tr>
+
 
       </tbody>
 

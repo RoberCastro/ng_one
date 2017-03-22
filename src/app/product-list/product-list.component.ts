@@ -14,15 +14,10 @@ export class ProductListComponent implements OnInit {
   pageTitle: String = 'Mes produits son contents';
   products: IProduct [] = [];
   private errorMessage;
-  listFilter: string;
+  listFilter: string ;
 
 
-
-
-  constructor(private _productService: ProductService) {
-
-
-  }
+  constructor(private _productService: ProductService) {  }
 
 
   ngOnInit(): void {

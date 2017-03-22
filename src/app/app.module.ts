@@ -12,22 +12,22 @@ import { StarComponent } from './shared/ui/star/star.component';
 import { ProductService } from './shared/providers/product.service';
 import { RouterModule } from "@angular/router";
 import { ArrayFilterPipe } from './shared/pipes/array-filter.pipe';
+import { ProductDetailComponent } from './product-list/product-detail.component';
+import {ROUTES} from "./app.route";
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     StarComponent,
-    ArrayFilterPipe
+    ArrayFilterPipe,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-
-      { path: 'products', component:ProductListComponent }
-    ])
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

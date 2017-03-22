@@ -1,23 +1,15 @@
 <p>
-  {{pageTitle}}
-
+  product-detail works!
 </p>
 
 <div class="panel panel-primary">
 
 
   <div class="panel-body">
-    <div class="row">
-      <div class="col-md-2">Filter by:</div>
-      <div class="col-md-4">
-        <input type="text" [(ngModel)]='listFilter'/>
-      </div>
-    </div>
-
 
     <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
 
-    <table class="table table-responsive" *ngIf="products?.length">
+    <table class="table table-responsive" *ngIf="product">
       <thead>
       <tr>
         <th>Ids</th>
@@ -31,7 +23,7 @@
 
       </thead>
       <tbody>
-      <tr *ngFor="let product of products | arrayFilter : listFilter">
+      <tr>
         <td>{{product.id}}</td>
         <td *ngIf="product.images.length">
           <img
@@ -57,14 +49,9 @@
           </app-star>
         </td>
       </tr>
-
       </tbody>
 
     </table>
   </div>
 </div>
 
-
-<pre>
-  {{products|json}}
-</pre>

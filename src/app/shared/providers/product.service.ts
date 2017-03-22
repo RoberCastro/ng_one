@@ -30,4 +30,11 @@ export class ProductService {
     console.log(error);
     return Observable.throw(error || 'backend server error');
   }
+
+  getProductsById(id: number) {
+     return this.getProducts()
+       .map(products =>{
+           return products.find( product => product.id === id);
+       } )
+  }
 }

@@ -9,10 +9,10 @@
 
   <div class="panel-body">
 
-    <div class="container">
+    <div class="container-fluid">
       <h1>Saisissez</h1>
 
-      <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
+      <form  #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
 
         <div class="form-group">
           <label>Nom</label>
@@ -20,10 +20,7 @@
           <p>{{myName}}</p>
           <b>{{nameRef.className}}</b>
         </div>
-        <div class="form-group">
-          <label>Index</label>
-          <input type="text" class="form-control" name="index" ngModel>
-        </div>
+
 
         <div class="form-group">
           <label>Note</label>
@@ -41,6 +38,18 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+
+      <form [formGroup]="maForme">
+
+        <div class="form-group">
+          <label>Index</label>
+          <input type="text" class="form-control" name="index"  formControlName="index">
+        </div>
+
+      <button type="submit" class="btn btn-primary">Submit2</button>
+
+      </form>
+
     </div>
   </div>
 </div>
